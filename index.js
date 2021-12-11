@@ -2,14 +2,17 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
+const PORT = process.env.PORT || 9002;
+
 
 const app = express()
       app.use(express.json())
       app.use(express.urlencoded());
       app.use(cors());
 
+// mongodb+srv://trantuyen:trantuyen@cluster0.rllo2.mongodb.net/manager?retryWrites=true&w=majority
 
-mongoose.connect("mongodb+srv://trantuyen:trantuyen@cluster0.rllo2.mongodb.net/manager?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/myLoginRegisterDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
@@ -63,6 +66,6 @@ app.post("/register", (req,res) => {
     })
 })
 
-app.listen(process.env.PORT || 9002, () => {
+app.listen(9002, () => {
     console.log("BE started at port http://localhost:9002");
 })
