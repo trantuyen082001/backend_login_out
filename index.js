@@ -10,9 +10,8 @@ const app = express()
       app.use(express.urlencoded());
       app.use(cors());
 
-// mongodb+srv://trantuyen:trantuyen@cluster0.rllo2.mongodb.net/manager?retryWrites=true&w=majority
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/myLoginRegisterDB", {
+mongoose.connect("mongodb+srv://trantuyen:trantuyen@cluster0.rllo2.mongodb.net/manager?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
