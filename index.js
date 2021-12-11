@@ -64,5 +64,5 @@ app.post("/register", (req,res) => {
 })
 
 app.listen(process.env.PORT || 9002, () => {
-    console.log("BE started at port http://localhost:9002",app.settings.env);
+    console.log("BE started at port http://localhost:9002");
 })
