@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
-const PORT = process.env.PORT || 9002;
-
 
 const app = express()
       app.use(express.json())
@@ -65,6 +63,6 @@ app.post("/register", (req,res) => {
     })
 })
 
-app.listen(PORT, () => {
-    console.log("BE started at port http://localhost:9002");
+app.listen(process.env.PORT || 9002, () => {
+    console.log("BE started at port http://localhost:9002",app.settings.env);
 })
